@@ -3,19 +3,21 @@
 This utility is a simple and efficient way to generate a 256-character long alphanumeric token. It's designed to be easily used and integrated into your workflows or projects where secure and random tokens are needed.
 
 ## How It Works
-The  `tokengen.sh` script utilizes `openssl` to generate a random string, which is then processed to ensure it's alphanumeric and trimmed to exactly 256 characters. This ensures a consistent and secure token each time the script is executed.
+The tokengen.sh script for Unix-like systems and the tokengen.bat script for Windows systems both serve the purpose of generating a random, secure, and alphanumeric token of 256 characters. While tokengen.sh utilizes openssl and other Unix-native commands, tokengen.bat leverages PowerShell commands to achieve the same goal on Windows environments.
 
 ## Getting Started
-To use the Token Generator Utility, you can directly execute the `tokengen.sh` script if you have it locally, or you can use `curl` to execute it remotely from the GitHub repository.
+To use the Token Generator Utility, you can directly execute the tokengen.sh script on Unix-like systems or the tokengen.bat script on Windows systems if you have them locally. Alternatively, you can use curl (on Unix-like systems) to execute the bash script remotely from a GitHub repository.
 
-## Direct Execution
+### Unix-like Systems
+
+#### Direct Execution
 If you have the script locally, simply run:
 ```bash
 ./tokengen.sh
 ```
 This will output a 256-character long alphanumeric token.
 
-## Remote Execution with `curl`
+#### Remote Execution with `curl`
 You can also execute the script remotely without downloading it, using `curl`. Here's a step-by-step guide:
 
 1. Use `curl` to fetch and execute the script:
@@ -25,8 +27,19 @@ curl -s https://raw.githubusercontent.com/keyqcloud/tokengen/main/tokengen.sh | 
 
 2. The script will execute, and the generated token will be printed directly to your terminal.
 
-### Example Bash Script
-If you want to incorporate this token generator into a larger script or workflow, here's an example script that fetches and executes the `tokengen.sh` script, capturing the token for further use:
+### On Windows Systems
+
+Direct Execution
+To execute the script on Windows, run the following in the command prompt:
+```batch
+.\tokengen.bat
+```
+It will generate and display the 256-character long alphanumeric token.
+
+### Example Usage in Script
+
+#### Bash Script Example
+Integrate the token generator into your scripts on Unix-like systems:
 
 ```bash
 #!/bin/bash
@@ -48,3 +61,19 @@ To use this script:
 3. Run the script: `./fetch_and_generate_token.sh`.
 
 The script will output a new 256-character long alphanumeric token each time it is executed.
+
+#### Batch Script Example
+
+For Windows, incorporate the token generator into your batch scripts:
+```batch
+@echo off
+setlocal
+
+:: Call the token generation script
+call tokengen.bat
+
+:: Use the token for further operations
+echo Generated token: %token%
+
+endlocal
+```
