@@ -34,7 +34,19 @@ To execute the script on Windows, run the following in the command prompt:
 ```batch
 .\tokengen.bat
 ```
+
+Or you can run the PowerShell script version by running the following in PowerShell:
+```powershell
+.\tokengen.ps1
+```
 It will generate and display the 256-character long alphanumeric token.
+
+#### Remote Execution with PowerShell
+
+You can also execute the script remotely without downloading it. On Windows, this must be done using the PowerShell script version of `tokengen`. Below is an example of how you can remotely execute `tokengen.ps1`:
+```powershell
+Invoke-Expression (Invoke-WebRequest -Uri https://raw.githubusercontent.com/keyqcloud/tokengen/main/tokengen.ps1 -UseBasicParsing).Content
+```
 
 ### Example Usage in Script
 
